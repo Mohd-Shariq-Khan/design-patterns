@@ -6,7 +6,7 @@ public class SingletonDesignPattern {
     private Object lock = new Object();
 
     private SingletonDesignPattern() {
-            System.out.println("Hello");
+        System.out.println("Hi");
     }
 
     public  static SingletonDesignPattern getInstance() {
