@@ -1,7 +1,7 @@
 
 public class SingletonDesignPattern {
 
-    private static final SingletonDesignPattern instance;
+    private static final SingletonDesignPattern object;
 
     private Object lock = new Object();
 
@@ -10,12 +10,12 @@ public class SingletonDesignPattern {
     }
 
     public  static SingletonDesignPattern getInstance() {
-        if (instance == null) {
+        if (object == null) {
             synchronized (lock) {
-                instance = new SingletonDesignPattern();
+                object = new SingletonDesignPattern();
             }
         }
-        return instance;
+        return object;
     }
 
 }
