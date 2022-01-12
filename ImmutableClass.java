@@ -1,21 +1,51 @@
 
-public class SingletonDesignPattern {
+public class ImmutableClass {
 
-    private static final SingletonDesignPattern object;
+    private final int a;
+    private final String b;
+    private final Map<Integer, String> m;
 
-    private Object lock = new Object();
+    public ImmutableClass(int a, String b, Map<Integer, String> m) {
+        this.a = a;
+        this.b = b;
 
-    private SingletonDesignPattern() {
-        System.out.println("Hi");
-    }
+        Map<Integer, String> tmp = new HashMap<>();
 
-    public  static SingletonDesignPattern getInstance() {
-        if (object == null) {
-            synchronized (lock) {
-                object = new SingletonDesignPattern();
-            }
+        for(Map.Entry<Integer, String> t: m.entrySet()) {
+            tmp.put(t.getKey(), t.getValue());
         }
-        return object;
+
+        this.m = tmp;
     }
 
+    public int getA() {
+        return this.a;
+    }
+
+    public String getB() {
+        return this.b;
+    }
+
+    public Map<Integer, String> getM() {
+        Map<Integer, String> tmp = new HashMap<>();
+
+        for(Map.Entry<Integer, String> t: this.m.entrySet()) {
+            tmp.put(t.getKey(), t.getValue());
+        }
+
+        return tmp;
+    }
+}
+
+
+class Main {
+    public static void main(String[] args) {
+        Map<Integer, String> m = new HashMap<>();
+        m.put(1, "2344");
+
+
+        i = new ImmutableClass(1, "Hello", m);
+        i.getM().put(2, "")
+
+    }
 }
